@@ -1,3 +1,5 @@
+//***************************    Revision of JS   ***********************************
+
 const name = 'Sakshi';
 let age = 22;
 const hasHobbies = true;

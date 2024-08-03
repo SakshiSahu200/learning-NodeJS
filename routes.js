@@ -21,12 +21,12 @@ const requestHandler = (req,res) => {
         const body = [];
         req.on('data', (chunk) => {
             console.log(chunk);
-            body.push(chunk);
+            body.push(chunk);  //array of buffer chunk
         });
         return req.on('end', () =>{
-            const parsedBody = Buffer.concat(body).toString();
+            const parsedBody = Buffer.concat(body).toString(); //with concat we are creating one buffer with all the chunks
             console.log(parsedBody );
-            const message = parsedBody.split('=')[1];
+            const message = parsedBody.split('=')[0];
            // fs.writeFileSync('message.txt', message); //storing in form of key-value pair
             //writeFileSync basically blocks the execution of next line of code until this file is done 
             fs.writeFile('message.txt', message, err => { //using this for asynchronous nature of NodeJS
